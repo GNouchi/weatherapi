@@ -1,0 +1,16 @@
+<style>  .green{ background-color: lightgreen  } </style>
+<h1 *ngIf="city">{{city.name}} Id: {{city.id}} </h1>
+<div *ngFor="let entry of list"> 
+    <div *ngIf="entry['show']">
+      <h2>{{ entry['show']?'show':'hide'}}</h2>
+    <p> Forecast: {{entry.weather[0].description}} </p>
+    <p> Humidity: {{entry.main.humidity}} </p>
+    <p> Current: {{entry.main.temp}} </p>
+    <p> Low: {{entry.main.temp_min}} </p>
+    <p> High: {{entry.main.temp_max}} </p>  
+    </div>
+    <div>
+      <button class="{{entry['show']?'green':'none'}}" (click)="toggleshow(entry)">Toggle >>> {{entry.dt_txt}}</button>
+    </div>
+
+</div>
